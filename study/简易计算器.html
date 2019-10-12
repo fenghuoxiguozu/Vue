@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        <input type="text" v-model="aa">
+        <select v-model="opt">
+            <option value="=">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select >
+        <input type="text" v-model="bb">
+
+        <input type="button" value="=" @click="calculate">
+
+        <input type="text" v-model="sum">
+
+    </div>
+
+
+<script>
+var vue=new Vue({
+    el:'#app',
+    data:{
+        aa : 0,
+        bb : 0,
+        sum : 0,
+        opt : '-',
+    },
+    methods:{
+        calculate () {
+            var result='parseInt(this.aa)' + this.opt+'parseInt(this.bb)';
+            this.sum=eval(result)
+        },
+
+    }
+});
+
+</script>
+
+</body>
+
+
+
+
+
+</html>

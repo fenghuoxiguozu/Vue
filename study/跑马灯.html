@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        <p>{{ msg }}</p>
+        <input type="button" value="run" v-on:click="startRun">
+        <input type="button" value="stop" v-on:click="endRun">
+    </div>
+
+
+<script>
+var vue=new Vue({
+    el:'#app',
+    data:{
+        'msg':'数据库主从(master/slave)同步安装与配置详解 05-06 阅读数',
+        Interval_id:null
+    },
+    methods:{
+        startRun(){
+            if(this.Interval_id != null) return;
+            this.Interval_id=setInterval( () => {
+                var start=this.msg.substring(0,1);
+                var end=this.msg.substring(1);
+                this.msg=end+start;
+                console.log(this.msg)
+            },200)
+        },
+        endRun(){
+            clearInterval(this.Interval_id);
+            this.Interval_id=null;
+        }
+
+    }
+})
+
+</script>
+
+</body>
+
+
+
+
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+
+
+    <div id="app">
+        <!--解决差值表达式闪烁的问题-->
+        <p v-cloak>======{{ msg1 }}----------</p>
+
+        <!--默认v-text没有闪烁的问题，会覆盖元素中原本的内容-->
+        <h4 v-text="msg1">=========</h4>
+
+        <h v-html="msg2"></h>
+
+        <!--v-bind:  ==  :-->
+        <input type="button" v-bind:value="msg3+'按钮'">
+
+        <input type="button" id="Btn" value='弹窗' v-on:click="show()">
+    </div>
+
+
+<script>
+var vue=new Vue({
+    el:'#app',
+    data:{
+        'msg1':'123',
+        'msg2': '<h1>你好</h>',
+        'msg3': '提交'
+    },
+    methods:{
+        show: function () {
+            alert("ok")
+        }
+    }
+})
+
+</script>
+
+</body>
+
+
+
+
+
+</html>
